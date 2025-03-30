@@ -54,18 +54,25 @@ function playRound(humanChoice, computerChoice) {
   p2.textContent = humanScore + "x" + computerScore;
 }
 
+let end = 0;
 function playGame(humanChoice) {
   let computerChoice = getComputerChoice();
   playRound(humanChoice, computerChoice);
   const p = document.createElement("p");
 
+  if (end >= 1) {
+    return 0;
+  }
+
   if (humanScore == 5) {
     p.textContent = "Human Wins! " + humanScore + "x" + computerScore;
     result.appendChild(p);
+    end++;
     return 0;
   } else if (computerScore == 5) {
     p.textContent = "Computer Wins! " + computerScore + "x" + humanScore;
     result.appendChild(p);
+    end++;
     return 0;
   }
 }
